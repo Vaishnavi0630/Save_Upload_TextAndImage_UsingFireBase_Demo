@@ -10,6 +10,7 @@ target 'FireBase_Demo' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  pod 'Kingfisher', '~> 4.0'
 
   # Pods for FireBase_Demo
 

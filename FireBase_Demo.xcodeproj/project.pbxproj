@@ -12,7 +12,9 @@
 		842D78E022C5EE5100539629 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842D78DE22C5EE5100539629 /* Main.storyboard */; };
 		842D78E222C5EE5200539629 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 842D78E122C5EE5200539629 /* Assets.xcassets */; };
 		842D78E522C5EE5200539629 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842D78E322C5EE5200539629 /* LaunchScreen.storyboard */; };
-		842D78ED22C5F0EE00539629 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 842D78EC22C5F0EE00539629 /* GoogleService-Info.plist */; };
+		84B2F6C122CC7EF400B2B538 /* chatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2F6C022CC7EF400B2B538 /* chatModel.swift */; };
+		84B2F6C622CC82D200B2B538 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84B2F6C522CC82D200B2B538 /* GoogleService-Info.plist */; };
+		84B2F6C822CCD03200B2B538 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2F6C722CCD03200B2B538 /* TableViewCell.swift */; };
 		DDAB3D982AFC4207D42FC17E /* Pods_FireBase_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2CED3E3E2C911A1CC32D375 /* Pods_FireBase_Demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +28,9 @@
 		842D78E122C5EE5200539629 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		842D78E422C5EE5200539629 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		842D78E622C5EE5200539629 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		842D78EC22C5F0EE00539629 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84B2F6C022CC7EF400B2B538 /* chatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatModel.swift; sourceTree = "<group>"; };
+		84B2F6C522CC82D200B2B538 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84B2F6C722CCD03200B2B538 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		A2CED3E3E2C911A1CC32D375 /* Pods_FireBase_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireBase_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -73,13 +77,23 @@
 			children = (
 				842D78DA22C5EE5100539629 /* AppDelegate.swift */,
 				842D78DC22C5EE5100539629 /* ViewController.swift */,
+				84B2F6C022CC7EF400B2B538 /* chatModel.swift */,
+				84B2F6C722CCD03200B2B538 /* TableViewCell.swift */,
+				84B2F6C522CC82D200B2B538 /* GoogleService-Info.plist */,
 				842D78DE22C5EE5100539629 /* Main.storyboard */,
-				842D78EC22C5F0EE00539629 /* GoogleService-Info.plist */,
+				84B2F6C222CC7F4700B2B538 /* New Group */,
 				842D78E122C5EE5200539629 /* Assets.xcassets */,
 				842D78E322C5EE5200539629 /* LaunchScreen.storyboard */,
 				842D78E622C5EE5200539629 /* Info.plist */,
 			);
 			path = FireBase_Demo;
+			sourceTree = "<group>";
+		};
+		84B2F6C222CC7F4700B2B538 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		A3487F14D76D403BDCD9652B /* Pods */ = {
@@ -152,7 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				842D78E522C5EE5200539629 /* LaunchScreen.storyboard in Resources */,
-				842D78ED22C5F0EE00539629 /* GoogleService-Info.plist in Resources */,
+				84B2F6C622CC82D200B2B538 /* GoogleService-Info.plist in Resources */,
 				842D78E222C5EE5200539629 /* Assets.xcassets in Resources */,
 				842D78E022C5EE5100539629 /* Main.storyboard in Resources */,
 			);
@@ -207,6 +221,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B2F6C122CC7EF400B2B538 /* chatModel.swift in Sources */,
+				84B2F6C822CCD03200B2B538 /* TableViewCell.swift in Sources */,
 				842D78DD22C5EE5100539629 /* ViewController.swift in Sources */,
 				842D78DB22C5EE5100539629 /* AppDelegate.swift in Sources */,
 			);

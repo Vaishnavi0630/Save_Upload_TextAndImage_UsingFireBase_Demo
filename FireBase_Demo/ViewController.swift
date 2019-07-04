@@ -11,6 +11,7 @@ import Firebase
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var txtText: UITextField!
     
     @IBOutlet weak var imgView: UIImageView!
@@ -18,6 +19,8 @@ class ViewController: UIViewController {
     let uiImagePicker = UIImagePickerController()
     
     var ref = DatabaseReference.init()
+    
+    var arrData = [chatModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +36,8 @@ class ViewController: UIViewController {
         imgView.addGestureRecognizer(tapGuesture)
         
         // Do any additional setup after loading the view.
+        
+        self.getFIRData()
     }
     
     //MARK: open gallery method
@@ -58,12 +63,48 @@ class ViewController: UIViewController {
         
     }
     
+    //MARK: Get all data from firebase Storage
+    
+    func getFIRData()  {
+        self.ref.child("chat").queryOrderedByKey().observe(.value) {snapshot in
+            
+            self.arrData.removeAll()
+            
+            if let snapShot = snapshot.children.allObjects as? [DataSnapshot]{
+                
+                for snap in snapShot{
+                    
+                    if let mainDict = snap.value as? [String: AnyObject]{
+                        
+                        let  name = mainDict["name"] as? String
+                        
+                        let text = mainDict["text"] as? String
+                        
+                        if  let profileURL = mainDict["profieURL"] as? String{
+                            
+                            self.arrData.append(chatModel(name: name!, text: text!, profileURL: profileURL))
+
+                        }else{
+                            self.arrData.append(chatModel(name: name!, text: text!, profileURL: "profileURL"))
+                        }
+                        
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
+        
+    }
     
     @IBAction func saveClicked(_ sender: Any) {
         
         self.saveFIRData()
 
+        self.getFIRData()
+        
     }
+    
+    
 }
 
 //MARK: UIImagePickerControllerDelegate Methods
@@ -125,13 +166,37 @@ extension ViewController{
         }
     }
 
-    
+
  
     func saveImage(name: String,profileURL: URL,completion: @escaping  ((_  url: URL?) -> ()))  {
         
         let dict = ["name":"vaishnavi","text":txtText.text!,"profieURL":profileURL.absoluteString] as [String : Any]
         
         self.ref.child("chat").childByAutoId().setValue(dict)
+    }
+}
+
+
+//MARK: tableview delegates
+
+extension ViewController: UITableViewDelegate,UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arrData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
+        
+        cell.chatModel = arrData[indexPath.row]
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 160
     }
     
     
